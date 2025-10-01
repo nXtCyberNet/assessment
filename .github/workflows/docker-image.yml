@@ -32,7 +32,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: /problem1/
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/my-app-name:latest
