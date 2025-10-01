@@ -1,0 +1,20 @@
+[Unit]
+Description=System Health Monitor Service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=cybernet
+Group=cybernet
+WorkingDirectory=/home/cybernet/tranee/problem2
+ExecStart=/usr/bin/python3 /home/username/tranee/problem2/main.py
+ExecStartPre=/bin/bash /home/username/tranee/problem2/setup_logs.sh
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

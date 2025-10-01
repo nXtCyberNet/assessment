@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: runner 
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list", "delete"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-controller-binding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: runner 
+  namespace: default
+roleRef:
+  kind: Role
+  name: runner 
+  apiGroup: rbac.authorization.k8s.io
