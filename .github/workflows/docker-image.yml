@@ -35,8 +35,8 @@ jobs:
           context: ./problem1
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/my-app-name:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/my-app-name:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/wisecow:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/wisecow:${{ github.sha }}
 
       
       - name: Deploy to Kubernetes
