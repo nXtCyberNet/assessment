@@ -12,15 +12,7 @@ jobs:
 
     steps:
       # ✅ Step 1: Get pods via K8s API
-      - name: Get pods via API
-        run: |
-          NAMESPACE="default"
-          TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-          CA=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-
-          curl -s --cacert $CA -H "Authorization: Bearer $TOKEN" \
-            https://kubernetes.default.svc/api/v1/namespaces/$NAMESPACE/pods | jq '.items[].metadata.name'
-
+     
       # Step 2: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
