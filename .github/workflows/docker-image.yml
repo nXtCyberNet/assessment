@@ -42,7 +42,7 @@ jobs:
       - name: Rollout restart via API
         run: |
           NAMESPACE="default"
-          DEPLOYMENT="wisecow-deployment"
+          DEPLOYMENT="wisecow"
           TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
           CA=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
       
